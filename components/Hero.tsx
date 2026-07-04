@@ -12,29 +12,24 @@ export default function Hero() {
       <div className="gold-glow-2"></div>
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-10" />
+     <div
+  className="absolute inset-0 z-10"
+  style={{
+    background:
+      "linear-gradient(90deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.55) 35%, rgba(0,0,0,.18) 60%, rgba(0,0,0,0) 100%)",
+  }}
+/>
 
       {/* Hero Image */}
-      <motion.div
-        className="absolute inset-0"
-        animate={{
-          scale: [1, 1.03, 1],
-          y: [0, -10, 0],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      >
-        <Image
-          src="/images/hero.webp.png"
-          alt="Hero"
-          fill
-          priority
-          className="object-cover object-right hero-image"
-        />
-      </motion.div>
+    <div className="absolute inset-0">
+  <Image
+    src="/images/hero.new.png"
+    alt="Hero"
+    fill
+    priority
+    className="object-cover object-right"
+  />
+</div>
 
       {/* Content */}
       <div className="relative z-20 max-w-7xl mx-auto w-full px-8">
