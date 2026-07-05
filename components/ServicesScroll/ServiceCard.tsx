@@ -21,119 +21,130 @@ interface Props {
 export default function ServiceCard({ service }: Props) {
   return (
     <motion.div
-      whileHover={{ y: -6 }}
+      whileHover={{ y: -8 }}
       transition={{ duration: 0.35 }}
       className="
         group
         relative
-        w-[720px]
-        h-[460px]
-        rounded-[34px]
+        w-full
+        lg:w-[720px]
+        rounded-3xl
         overflow-hidden
-        bg-[#121212]
+        bg-[#111]
         border
-        border-[#2a2a2a]
+        border-[#2b2b2b]
         hover:border-[#d4af37]
         transition-all
-        duration-300
+        duration-500
         flex
+        flex-col
+        lg:flex-row
         shrink-0
       "
     >
       {/* LEFT CONTENT */}
-      <div className="w-[40%] flex flex-col p-10">
-
-        {/* TOP */}
-        <div className="flex items-center gap-4">
+      <div
+        className="
+          w-full
+          lg:w-[42%]
+          p-6
+          sm:p-8
+          lg:p-10
+          flex
+          flex-col
+        "
+      >
+        {/* Header */}
+        <div className="flex items-center gap-3">
 
           <div
             className="
-              w-12
-              h-12
+              w-11
+              h-11
               rounded-full
               border
               border-[#d4af37]
               flex
               items-center
               justify-center
-              text-[18px]
-              text-[#d4af37]
+              text-xl
             "
           >
             {service.icon}
           </div>
 
-          <div className="w-12 h-px bg-[#555]" />
+          <div className="flex-1 h-px bg-[#444]" />
 
           <span
             className="
               text-[#d4af37]
-              tracking-[4px]
-              text-[12px]
-              font-medium
+              tracking-[3px]
+              text-xs
+              font-semibold
             "
           >
             {service.number}
           </span>
-
         </div>
 
-        {/* TITLE */}
+        {/* Title */}
         <h2
           className="
-            mt-10
-            text-[15px]
-            leading-6
+            mt-6
+            text-xl
+            lg:text-2xl
             font-bold
             text-white
+            leading-snug
           "
         >
           {service.title}
         </h2>
 
-        {/* DESCRIPTION */}
+        {/* Description */}
         <p
           className="
-            mt-5
-            text-[13px]
-            leading-6
+            mt-4
+            text-sm
+            lg:text-[15px]
+            leading-7
             text-gray-400
           "
         >
           {service.description}
         </p>
 
-        <div className="flex-1" />
-
-        {/* BRANDS */}
-        <div>
+        {/* Brands */}
+        <div className="mt-8">
 
           <p
             className="
               uppercase
               tracking-[3px]
-              text-[10px]
+              text-[11px]
               text-gray-500
-              mb-4
+              mb-3
             "
           >
             Supported Brands
           </p>
 
-          <div className="flex flex-wrap gap-x-3 gap-y-2">
+          <div className="flex flex-wrap gap-2">
 
             {service.brands.map((brand) => (
               <span
                 key={brand}
                 className="
-                  text-[12px]
+                  px-3
+                  py-1
+                  rounded-full
+                  border
+                  border-[#343434]
+                  text-xs
                   text-gray-300
-                  border-b
-                  border-[#444]
+                  hover:border-[#d4af37]
                   hover:text-[#d4af37]
-                  transition-colors
-                  duration-300
-                  cursor-pointer
+                  transition
                 "
               >
                 {brand}
@@ -144,17 +155,16 @@ export default function ServiceCard({ service }: Props) {
 
         </div>
 
-        {/* BUTTON */}
+        {/* Button */}
         <button
           className="
-            group/button
             mt-8
-            flex
+            inline-flex
             items-center
-            gap-3
+            gap-2
             text-[#d4af37]
-            text-[15px]
             font-semibold
+            group/button
           "
         >
           Book This Service
@@ -164,26 +174,32 @@ export default function ServiceCard({ service }: Props) {
             className="
               transition-transform
               duration-300
-              group-hover/button:translate-x-1.5
+              group-hover/button:translate-x-1
             "
           />
-
         </button>
-
       </div>
 
-      {/* RIGHT IMAGE */}
-      <div className="relative flex-1 overflow-hidden">
-
+      {/* IMAGE */}
+      <div
+        className="
+          relative
+          w-full
+          lg:flex-1
+          h-[260px]
+          sm:h-[320px]
+          lg:h-auto
+          overflow-hidden
+        "
+      >
         <Image
           src={service.image}
           alt={service.title}
           fill
           priority
-          sizes="50vw"
+          sizes="(max-width:1024px) 100vw,50vw"
           className="
             object-cover
-            object-center
             transition-transform
             duration-700
             group-hover:scale-105
@@ -194,16 +210,16 @@ export default function ServiceCard({ service }: Props) {
           className="
             absolute
             inset-0
-            bg-gradient-to-l
-            from-transparent
+            bg-gradient-to-t
+            lg:bg-gradient-to-l
+            from-black/20
             via-transparent
-            to-[#121212]/15
+            to-transparent
           "
         />
-
       </div>
 
-      {/* GOLD BOTTOM LINE */}
+      {/* Bottom Gold Line */}
       <div
         className="
           absolute
@@ -217,7 +233,6 @@ export default function ServiceCard({ service }: Props) {
           group-hover:w-full
         "
       />
-
     </motion.div>
   );
 }

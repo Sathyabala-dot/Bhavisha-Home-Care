@@ -6,7 +6,7 @@ import { useEffect } from "react";
 export default function SmoothScroll() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.6, // increase for slower scrolling
+      duration: 1.8, // increase for slower scrolling
       smoothWheel: true,
       wheelMultiplier: 0.8, // lower = slower
       touchMultiplier: 1,
