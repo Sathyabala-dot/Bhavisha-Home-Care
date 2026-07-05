@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import FloatingContact from "@/components/FloatingContact";
 import Features from "@/components/Features";
-import ProductShowcase from "@/components/ProductShowcase";
 import ExtremePerformance from "@/components/ExtremePerformance";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import WhyChooseCards from "@/components/WhyChooseCards";
@@ -24,7 +23,6 @@ export default function Home() {
       <Hero />
       <FloatingContact />
       <Features />
-      <ProductShowcase />
       <ExtremePerformance />
       <WhyChooseUs />
       <WhyChooseCards />

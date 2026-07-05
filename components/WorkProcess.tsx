@@ -37,7 +37,7 @@ const steps = [
 ];
 
 export default function WorkProcess() {
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -51,10 +51,11 @@ export default function WorkProcess() {
 
   return (
     <section
+    id="solutions"
       ref={sectionRef}
-      className="relative bg-black py-28 overflow-hidden"
+      className="relative overflow-hidden bg-black py-20 md:py-24 lg:py-28"
     >
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
 
         {/* Heading */}
 
@@ -62,23 +63,39 @@ export default function WorkProcess() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: .8 }}
-          className="text-center mb-24"
+          transition={{ duration: 0.8 }}
+          className="mb-16 lg:mb-24 text-center"
         >
-          <p className="uppercase tracking-[5px] text-[#d4af37] text-xs font-semibold">
+          <p className="text-xs font-semibold uppercase tracking-[5px] text-[#d4af37]">
             HOW IT WORKS
           </p>
 
-          <h2 className="mt-3 text-4xl lg:text-5xl font-bold text-white">
+          <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
             Our <span className="text-[#d4af37]">Work Process</span>
           </h2>
+
+          <p className="mx-auto mt-6 max-w-2xl text-gray-400 text-sm sm:text-base leading-7">
+            A smooth and transparent service journey from booking to
+            completion, ensuring quality repairs and customer satisfaction.
+          </p>
         </motion.div>
 
         <div className="relative">
 
-          {/* Background Line */}
+          {/* Timeline */}
 
-          <div className="absolute left-1/2 top-0 h-full w-px bg-[#2d2d2d] -translate-x-1/2" />
+          <div
+            className="
+              absolute
+              left-7
+              lg:left-1/2
+              top-0
+              h-full
+              w-px
+              bg-[#2d2d2d]
+              lg:-translate-x-1/2
+            "
+          />
 
           {/* Animated Gold Line */}
 
@@ -86,7 +103,8 @@ export default function WorkProcess() {
             style={{ scaleY }}
             className="
               absolute
-              left-1/2
+              left-7
+              lg:left-1/2
               top-0
               h-full
               w-[2px]
@@ -95,7 +113,7 @@ export default function WorkProcess() {
               via-[#e7c35a]
               to-[#d4af37]
               origin-top
-              -translate-x-1/2
+              lg:-translate-x-1/2
             "
           />
 
@@ -105,12 +123,27 @@ export default function WorkProcess() {
             return (
               <div
                 key={index}
-                className="relative grid grid-cols-2 items-center mb-20"
+                className="
+                  relative
+                  grid
+                  grid-cols-1
+                  lg:grid-cols-2
+                  items-center
+                  mb-12
+                  lg:mb-20
+                "
               >
 
-                {/* LEFT SIDE */}
+                {/* LEFT COLUMN */}
 
-                <div className={`flex ${left ? "justify-end pr-16" : ""}`}>
+                <div
+                  className={`
+                    flex
+                    pl-16
+                    lg:pl-0
+                    ${left ? "lg:justify-end lg:pr-16" : ""}
+                  `}
+                >
 
                   {left && (
 
@@ -133,22 +166,25 @@ export default function WorkProcess() {
                           "0 20px 45px rgba(212,175,55,.12)",
                       }}
                       className="
-                        w-[340px]
+                        w-full
+                        max-w-md
+                        lg:w-[340px]
                         rounded-[24px]
                         border
                         border-[#272727]
                         bg-[#131313]
-                        p-7
+                        p-5
+                        lg:p-7
                         transition-all
                         duration-300
                       "
                     >
 
-                      <h3 className="text-xl font-bold text-white mb-4">
+                      <h3 className="mb-4 text-lg lg:text-xl font-bold text-white">
                         {step.title}
                       </h3>
 
-                      <p className="text-[15px] leading-7 text-gray-400">
+                      <p className="text-sm lg:text-[15px] leading-6 lg:leading-7 text-gray-400">
                         {step.description}
                       </p>
 
@@ -158,9 +194,16 @@ export default function WorkProcess() {
 
                 </div>
 
-                                {/* RIGHT SIDE */}
+                                {/* RIGHT COLUMN */}
 
-                <div className={`flex ${!left ? "justify-start pl-16" : ""}`}>
+                <div
+                  className={`
+                    flex
+                    pl-16
+                    lg:pl-0
+                    ${!left ? "lg:justify-start lg:pl-16" : ""}
+                  `}
+                >
 
                   {!left && (
 
@@ -174,7 +217,7 @@ export default function WorkProcess() {
                         x: 0,
                       }}
                       viewport={{ once: true }}
-                      transition={{ duration: .7 }}
+                      transition={{ duration: 0.7 }}
                       whileHover={{
                         y: -8,
                         scale: 1.02,
@@ -183,22 +226,24 @@ export default function WorkProcess() {
                           "0 20px 45px rgba(212,175,55,.12)",
                       }}
                       className="
-                        w-[340px]
+                        w-full
+                        max-w-md
+                        lg:w-[340px]
                         rounded-[24px]
                         border
                         border-[#272727]
                         bg-[#131313]
-                        p-7
+                        p-5
+                        lg:p-7
                         transition-all
                         duration-300
                       "
                     >
-
-                      <h3 className="text-xl font-bold text-white mb-4">
+                      <h3 className="mb-4 text-lg lg:text-xl font-bold text-white">
                         {step.title}
                       </h3>
 
-                      <p className="text-[15px] leading-7 text-gray-400">
+                      <p className="text-sm lg:text-[15px] leading-6 lg:leading-7 text-gray-400">
                         {step.description}
                       </p>
 
@@ -208,7 +253,7 @@ export default function WorkProcess() {
 
                 </div>
 
-                {/* NUMBER */}
+                {/* TIMELINE NUMBER */}
 
                 <motion.div
                   initial={{
@@ -232,10 +277,13 @@ export default function WorkProcess() {
                   }}
                   className="
                     absolute
-                    left-1/2
+                    left-7
+                    lg:left-1/2
                     -translate-x-1/2
-                    w-14
-                    h-14
+                    w-12
+                    h-12
+                    lg:w-14
+                    lg:h-14
                     rounded-full
                     border
                     border-[#6f592c]
@@ -244,7 +292,8 @@ export default function WorkProcess() {
                     items-center
                     justify-center
                     text-[#d4af37]
-                    text-sm
+                    text-xs
+                    lg:text-sm
                     font-bold
                     z-20
                   "
@@ -253,13 +302,9 @@ export default function WorkProcess() {
                 </motion.div>
 
               </div>
-
             );
-
           })}
-
-        </div>
-
+                  </div>
       </div>
     </section>
   );

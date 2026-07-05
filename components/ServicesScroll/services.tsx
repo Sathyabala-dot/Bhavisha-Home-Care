@@ -16,7 +16,6 @@ export const services = [
     ],
     image: "/images/ac.png",
   },
-
   {
     id: 2,
     number: "02",
@@ -34,7 +33,6 @@ export const services = [
     ],
     image: "/images/wash.png",
   },
-
   {
     id: 3,
     number: "03",
@@ -51,7 +49,6 @@ export const services = [
     ],
     image: "/images/geizer.png",
   },
-
   {
     id: 4,
     number: "04",

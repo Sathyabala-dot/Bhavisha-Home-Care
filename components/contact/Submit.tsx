@@ -6,11 +6,8 @@ import { Calendar, Clock, MessageCircle } from "lucide-react";
 const services = [
   "AC Repair & Service",
   "Washing Machine Repair",
-  "Refrigerator Repair",
   "RO Purifier Repair",
-  "Microwave Oven Repair",
   "Water Heater Repair",
-  "TV Repair",
 ];
 
 export default function Submit() {

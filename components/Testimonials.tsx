@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
@@ -50,55 +50,115 @@ export default function Testimonials() {
   useEffect(() => {
     const timer = setInterval(() => {
       paginate(1);
-    }, 4500);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, [page]);
 
   const variants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 350 : -350,
+      x: direction > 0 ? 300 : -300,
       opacity: 0,
       scale: 0.95,
     }),
+
     center: {
       x: 0,
       opacity: 1,
       scale: 1,
     },
+
     exit: (direction: number) => ({
-      x: direction > 0 ? -350 : 350,
+      x: direction > 0 ? -300 : 300,
       opacity: 0,
       scale: 0.95,
     }),
   };
 
   return (
-    <section className="relative overflow-hidden bg-black py-28">
+    <section className="relative overflow-hidden bg-black py-20 lg:py-28">
 
       {/* Glow */}
 
       <div className="absolute inset-0 flex justify-center">
-        <div className="h-[700px] w-[700px] rounded-full bg-[#d4af37]/5 blur-[130px]" />
+
+        <div
+          className="
+            h-[500px]
+            w-[500px]
+            lg:h-[750px]
+            lg:w-[750px]
+            rounded-full
+            bg-[#d4af37]/5
+            blur-[140px]
+          "
+        />
+
       </div>
 
-      <div className="relative z-10 mx-auto max-w-5xl px-6">
+      <div className="relative z-10 mx-auto max-w-6xl px-5 sm:px-8">
 
-        <p className="text-center text-sm font-semibold tracking-[7px] text-[#d4af37]">
-          WHAT OUR CUSTOMERS SAY
-        </p>
+        {/* Heading */}
 
-        <h2 className="mt-4 text-center text-3xl font-bold text-white md:text-6xl">
-          Customer Reviews
-        </h2>
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 30,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{ once: true }}
+          transition={{ duration: .7 }}
+          className="text-center"
+        >
 
-        <div className="relative mt-20 h-[320px] overflow-hidden">
+          <p
+            className="
+              uppercase
+              tracking-[5px]
+              text-[#d4af37]
+              text-xs
+              sm:text-sm
+              font-semibold
+            "
+          >
+            WHAT OUR CUSTOMERS SAY
+          </p>
+
+          <h2
+            className="
+              mt-4
+              text-3xl
+              sm:text-4xl
+              lg:text-5xl
+              font-bold
+              text-white
+            "
+          >
+            Customer Reviews
+          </h2>
+
+        </motion.div>
+
+        {/* Testimonial Card */}
+
+        <div
+          className="
+            relative
+            mt-14
+            lg:mt-20
+            min-h-[430px]
+            lg:min-h-[360px]
+          "
+        >
 
           <AnimatePresence
             custom={direction}
-            initial={false}
-            mode="popLayout"
+            mode="wait"
           >
+
             <motion.div
               key={page}
               custom={direction}
@@ -107,51 +167,136 @@ export default function Testimonials() {
               animate="center"
               exit="exit"
               transition={{
-                x: {
-                  duration: 0.9,
-                  ease: [0.22, 1, 0.36, 1],
-                },
-                opacity: {
-                  duration: 0.4,
-                },
-                scale: {
-                  duration: 0.4,
-                },
+                duration: .8,
               }}
-              className="absolute left-0 top-0 w-full text-center"
+              className="
+                absolute
+                inset-0
+              "
             >
-              <div className="mb-8 flex justify-center gap-2">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    size={22}
-                    className="fill-[#d4af37] text-[#d4af37]"
-                  />
-                ))}
-              </div>
 
-              <p className="mx-auto max-w-4xl text-xl italic leading-relaxed text-gray-200 md:text-2xl">
-                "{testimonials[page].review}"
-              </p>
+              <div
+                className="
+                  rounded-[30px]
+                  border
+                  border-[#2a2a2a]
+                  bg-[#111111]
+                  p-8
+                  sm:p-10
+                  lg:p-14
+                  backdrop-blur-xl
+                  shadow-[0_25px_60px_rgba(0,0,0,.45)]
+                "
+              >
 
-              <div className="mt-12">
-                <h3 className="text-xl font-bold text-white">
-                  {testimonials[page].name}
-                </h3>
+                {/* Quote */}
 
-                <p className="mt-2 text-lg text-gray-500">
-                  — {testimonials[page].location}
+                <Quote
+                  size={42}
+                  className="text-[#d4af37] mb-8"
+                />
+
+                {/* Stars */}
+
+                <div className="flex justify-center gap-2 mb-8">
+
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      size={20}
+                      className="fill-[#d4af37] text-[#d4af37]"
+                    />
+                  ))}
+
+                </div>
+                                {/* Review */}
+
+                <p
+                  className="
+                    mx-auto
+                    max-w-4xl
+                    text-center
+                    italic
+                    text-gray-200
+                    text-base
+                    sm:text-lg
+                    lg:text-2xl
+                    leading-8
+                    lg:leading-10
+                  "
+                >
+                  "{testimonials[page].review}"
                 </p>
+
+                {/* Customer */}
+
+                <div className="mt-12 flex flex-col items-center">
+
+                  {/* Avatar */}
+
+                  <div
+                    className="
+                      flex
+                      h-16
+                      w-16
+                      items-center
+                      justify-center
+                      rounded-full
+                      border
+                      border-[#d4af37]
+                      bg-[#1a1a1a]
+                      text-xl
+                      font-bold
+                      text-[#d4af37]
+                    "
+                  >
+                    {testimonials[page].name.charAt(0)}
+                  </div>
+
+                  <h3
+                    className="
+                      mt-5
+                      text-xl
+                      font-bold
+                      text-white
+                    "
+                  >
+                    {testimonials[page].name}
+                  </h3>
+
+                  <p
+                    className="
+                      mt-2
+                      text-sm
+                      sm:text-base
+                      text-gray-400
+                    "
+                  >
+                    {testimonials[page].location}
+                  </p>
+
+                </div>
+
               </div>
+
             </motion.div>
+
           </AnimatePresence>
 
         </div>
 
-        {/* Dots */}
+        {/* Navigation Dots */}
 
-        <div className="mt-8 flex justify-center gap-4">
+        <div
+          className="
+            mt-10
+            flex
+            justify-center
+            gap-3
+          "
+        >
           {testimonials.map((_, index) => (
+
             <button
               key={index}
               onClick={() =>
@@ -160,16 +305,25 @@ export default function Testimonials() {
                   index > page ? 1 : -1,
                 ])
               }
-              className={`h-1 rounded-full transition-all duration-500 ${
-                page === index
-                  ? "w-12 bg-[#d4af37]"
-                  : "w-7 bg-gray-700 hover:bg-gray-500"
-              }`}
+              aria-label={`Go to testimonial ${index + 1}`}
+              className={`
+                transition-all
+                duration-500
+                rounded-full
+
+                ${
+                  page === index
+                    ? "w-12 h-3 bg-[#d4af37]"
+                    : "w-3 h-3 bg-[#444] hover:bg-[#777]"
+                }
+              `}
             />
+
           ))}
         </div>
 
       </div>
+
     </section>
   );
 }

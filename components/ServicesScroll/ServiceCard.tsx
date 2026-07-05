@@ -1,4 +1,4 @@
-"use client";
+ "use client";
 
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
@@ -21,130 +21,119 @@ interface Props {
 export default function ServiceCard({ service }: Props) {
   return (
     <motion.div
-      whileHover={{ y: -8 }}
+      whileHover={{ y: -6 }}
       transition={{ duration: 0.35 }}
       className="
         group
         relative
-        w-full
-        lg:w-[720px]
-        rounded-3xl
+        w-[720px]
+        h-[460px]
+        rounded-[34px]
         overflow-hidden
-        bg-[#111]
+        bg-[#121212]
         border
-        border-[#2b2b2b]
+        border-[#2a2a2a]
         hover:border-[#d4af37]
         transition-all
-        duration-500
+        duration-300
         flex
-        flex-col
-        lg:flex-row
         shrink-0
       "
     >
       {/* LEFT CONTENT */}
-      <div
-        className="
-          w-full
-          lg:w-[42%]
-          p-6
-          sm:p-8
-          lg:p-10
-          flex
-          flex-col
-        "
-      >
-        {/* Header */}
-        <div className="flex items-center gap-3">
+      <div className="w-[40%] flex flex-col p-10">
+
+        {/* TOP */}
+        <div className="flex items-center gap-4">
 
           <div
             className="
-              w-11
-              h-11
+              w-12
+              h-12
               rounded-full
               border
               border-[#d4af37]
               flex
               items-center
               justify-center
-              text-xl
+              text-[18px]
+              text-[#d4af37]
             "
           >
             {service.icon}
           </div>
 
-          <div className="flex-1 h-px bg-[#444]" />
+          <div className="w-12 h-px bg-[#555]" />
 
           <span
             className="
               text-[#d4af37]
-              tracking-[3px]
-              text-xs
-              font-semibold
+              tracking-[4px]
+              text-[12px]
+              font-medium
             "
           >
             {service.number}
           </span>
+
         </div>
 
-        {/* Title */}
+        {/* TITLE */}
         <h2
           className="
-            mt-6
-            text-xl
-            lg:text-2xl
+            mt-10
+            text-[15px]
+            leading-6
             font-bold
             text-white
-            leading-snug
           "
         >
           {service.title}
         </h2>
 
-        {/* Description */}
+        {/* DESCRIPTION */}
         <p
           className="
-            mt-4
-            text-sm
-            lg:text-[15px]
-            leading-7
+            mt-5
+            text-[13px]
+            leading-6
             text-gray-400
           "
         >
           {service.description}
         </p>
 
-        {/* Brands */}
-        <div className="mt-8">
+        <div className="flex-1" />
+
+        {/* BRANDS */}
+        <div>
 
           <p
             className="
               uppercase
               tracking-[3px]
-              text-[11px]
+              text-[10px]
               text-gray-500
-              mb-3
+              mb-4
             "
           >
             Supported Brands
           </p>
 
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-x-3 gap-y-2">
 
             {service.brands.map((brand) => (
               <span
                 key={brand}
                 className="
-                  px-3
-                  py-1
-                  rounded-full
-                  border
-                  border-[#343434]
-                  text-xs
+                  text-[12px]
                   text-gray-300
-                  hover:border-[#d4af37]
+                  border-b
+                  border-[#444]
                   hover:text-[#d4af37]
-                  transition
+                  transition-colors
+                  duration-300
+                  cursor-pointer
                 "
               >
                 {brand}
@@ -155,16 +144,17 @@ export default function ServiceCard({ service }: Props) {
 
         </div>
 
-        {/* Button */}
+        {/* BUTTON */}
         <button
           className="
-            mt-8
-            inline-flex
-            items-center
-            gap-2
-            text-[#d4af37]
-            font-semibold
             group/button
+            mt-8
+            flex
+            items-center
+            gap-3
+            text-[#d4af37]
+            text-[15px]
+            font-semibold
           "
         >
           Book This Service
@@ -174,32 +164,26 @@ export default function ServiceCard({ service }: Props) {
             className="
               transition-transform
               duration-300
-              group-hover/button:translate-x-1
+              group-hover/button:translate-x-1.5
             "
           />
+
         </button>
+
       </div>
 
-      {/* IMAGE */}
-      <div
-        className="
-          relative
-          w-full
-          lg:flex-1
-          h-[260px]
-          sm:h-[320px]
-          lg:h-auto
-          overflow-hidden
-        "
-      >
+      {/* RIGHT IMAGE */}
+      <div className="relative flex-1 overflow-hidden">
+
         <Image
           src={service.image}
           alt={service.title}
           fill
           priority
-          sizes="(max-width:1024px) 100vw,50vw"
+          sizes="50vw"
           className="
             object-cover
+            object-center
             transition-transform
             duration-700
             group-hover:scale-105
@@ -210,16 +194,16 @@ export default function ServiceCard({ service }: Props) {
           className="
             absolute
             inset-0
-            bg-gradient-to-t
-            lg:bg-gradient-to-l
-            from-black/20
+            bg-gradient-to-l
+            from-transparent
             via-transparent
-            to-transparent
+            to-[#121212]/15
           "
         />
+
       </div>
 
-      {/* Bottom Gold Line */}
+      {/* GOLD BOTTOM LINE */}
       <div
         className="
           absolute
@@ -233,6 +217,7 @@ export default function ServiceCard({ service }: Props) {
           group-hover:w-full
         "
       />
+
     </motion.div>
   );
 }

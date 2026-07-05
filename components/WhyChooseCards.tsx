@@ -41,17 +41,19 @@ const cards = [
 
 export default function WhyChooseCards() {
   return (
-    <section className="bg-[#080808] py-24">
-      <div className="max-w-[1500px] mx-auto px-8">
+    <section 
+     id="technology"
+    className="bg-[#080808] py-20 lg:py-28">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
 
           {cards.map((card, index) => {
             const Icon = card.icon;
 
             return (
               <motion.div
-                key={index}
+                key={card.number}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -60,104 +62,112 @@ export default function WhyChooseCards() {
                   delay: index * 0.12,
                 }}
                 whileHover={{
-                  y: -10,
+                  y: -8,
                 }}
                 className="
                   group
                   relative
-                  h-[390px]
-                  rounded-[28px]
-                  bg-[#111111]
+                  overflow-hidden
+                  rounded-3xl
                   border
                   border-[#2a2a2a]
-                  hover:border-[#d4af37]
+                  bg-[#111111]
+                  p-6
+                  lg:p-8
                   transition-all
                   duration-500
-                  hover:shadow-[0_20px_60px_rgba(212,175,55,0.12)]
-                  overflow-hidden
-                  p-8
+                  hover:border-[#d4af37]
+                  hover:shadow-[0_20px_60px_rgba(212,175,55,.12)]
                 "
               >
-                {/* Card Content */}
-                <div className="flex flex-col h-full">
 
-                  {/* Number */}
-                  <div className="absolute top-7 right-7">
-                    <span className="px-3 py-1 rounded-full border border-[#d4af37] text-[#d4af37] text-xs font-semibold tracking-wider">
-                      {card.number}
-                    </span>
-                  </div>
+                {/* Number */}
 
-                  {/* Icon */}
-                  <div
+                <div className="absolute right-6 top-6">
+
+                  <span
                     className="
-                      w-16
-                      h-16
-                      rounded-2xl
-                      bg-[#1d1d1d]
-                      flex
-                      items-center
-                      justify-center
-                      transition-all
-                      duration-500
-                      group-hover:bg-[#d4af37]
-                    "
-                  >
-                    <Icon
-                      size={30}
-                      className="text-white transition-all duration-500 group-hover:text-black"
-                    />
-                  </div>
-
-                  {/* Title */}
-                  <h3
-                    className="
-                      mt-7
-                      text-[30px]
-                      font-bold
-                      leading-[1.2]
-                      text-white
-                      transition-colors
-                      duration-500
-                      group-hover:text-[#d4af37]
-                    "
-                  >
-                    {card.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p
-                    className="
-                      mt-4
-                      flex-1
-                      text-[16px]
-                      leading-7
-                      text-gray-400
-                    "
-                  >
-                    {card.description}
-                  </p>
-
-                  {/* Learn More */}
-                  <div
-                    className="
-                      mt-6
+                      rounded-full
+                      border
+                      border-[#d4af37]
+                      px-3
+                      py-1
+                      text-[11px]
+                      font-semibold
+                      tracking-[2px]
                       text-[#d4af37]
-                      font-medium
-                      opacity-0
-                      translate-y-2
-                      transition-all
-                      duration-500
-                      group-hover:opacity-100
-                      group-hover:translate-y-0
                     "
                   >
-                    
-                  </div>
+                    {card.number}
+                  </span>
 
                 </div>
 
+                {/* Icon */}
+
+                <div
+                  className="
+                    flex
+                    h-16
+                    w-16
+                    items-center
+                    justify-center
+                    rounded-2xl
+                    bg-[#1d1d1d]
+                    border
+                    border-[#2f2f2f]
+                    transition-all
+                    duration-500
+                    group-hover:bg-[#d4af37]
+                    group-hover:border-[#d4af37]
+                    group-hover:rotate-6
+                  "
+                >
+                  <Icon
+                    size={30}
+                    className="
+                      text-white
+                      transition-all
+                      duration-500
+                      group-hover:text-black
+                    "
+                  />
+                </div>
+
+                {/* Title */}
+
+                <h3
+                  className="
+                    mt-7
+                    text-2xl
+                    lg:text-[28px]
+                    font-bold
+                    leading-tight
+                    text-white
+                    transition-colors
+                    duration-500
+                    group-hover:text-[#d4af37]
+                  "
+                >
+                  {card.title}
+                </h3>
+
+                {/* Description */}
+
+                <p
+                  className="
+                    mt-5
+                    text-sm
+                    lg:text-base
+                    leading-7
+                    text-gray-400
+                  "
+                >
+                  {card.description}
+                </p>
+
                 {/* Bottom Gold Line */}
+
                 <div
                   className="
                     absolute
@@ -171,6 +181,7 @@ export default function WhyChooseCards() {
                     group-hover:w-full
                   "
                 />
+
               </motion.div>
             );
           })}

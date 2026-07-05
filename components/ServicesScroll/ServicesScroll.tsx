@@ -14,6 +14,8 @@ export default function ServicesScroll() {
   const sliderRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
+    if (window.innerWidth < 1024) return;
+
     const section = sectionRef.current;
     const slider = sliderRef.current;
 
@@ -31,9 +33,9 @@ export default function ServicesScroll() {
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: () => `+=${totalMove + 1000}`,
+          end: () => `+=${totalMove + 800}`,
+          scrub: 1,
           pin: true,
-          scrub: 1.2,
           anticipatePin: 1,
           invalidateOnRefresh: true,
         },
@@ -45,62 +47,71 @@ export default function ServicesScroll() {
 
   return (
     <section
+      id="services"
       ref={sectionRef}
-      className="relative bg-[#080808] overflow-hidden"
+      className="relative overflow-hidden bg-[#080808] py-20 lg:py-28"
     >
-      {/* Heading */}
+      {/* Background Glow */}
 
-      <div className="max-w-[1600px] mx-auto px-20 pt-24">
+      <div className="absolute left-0 top-20 h-80 w-80 rounded-full bg-[#d4af37]/5 blur-[140px]" />
 
-        <div className="flex items-end justify-between">
+      <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-[#d4af37]/5 blur-[140px]" />
+
+      <div className="relative z-10">
+
+        {/* Heading */}
+
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-5 sm:px-8 lg:flex-row lg:items-end lg:px-12">
 
           <div>
 
             <p
               className="
-              uppercase
-              tracking-[6px]
-              text-[#d4af37]
-              text-sm
-              font-semibold
-            "
+                uppercase
+                tracking-[5px]
+                text-[#d4af37]
+                text-xs
+                sm:text-sm
+                font-semibold
+              "
             >
-              Professional Services We Offer
+              Professional Services
             </p>
 
             <h2
               className="
-              mt-6
-              text-[50px]
-              leading-none
-              font-bold
-              text-white
-            "
+                mt-4
+                text-3xl
+                sm:text-4xl
+                lg:text-5xl
+                font-bold
+                text-white
+              "
             >
               Our Appliance Services
             </h2>
 
+            <p
+              className="
+                mt-5
+                max-w-2xl
+                text-gray-400
+                text-base
+                sm:text-lg
+              "
+            >
+              Premium repair and installation services for all major
+              home appliances with certified technicians and genuine
+              spare parts.
+            </p>
+
           </div>
 
-          <div
-            className="
-            hidden
-            lg:flex
-            items-center
-            gap-6
-            mb-8
-          "
-          >
-            <div className="w-24 h-px bg-[#444]" />
+          <div className="hidden lg:flex items-center gap-4">
 
-            <span
-              className="
-              uppercase
-              tracking-[5px]
-              text-gray-500
-              text-sm
-            "
-            >
+            <div className="h-px w-20 bg-[#555]" />
+
+            <span className="text-xs uppercase tracking-[4px] text-gray-500">
               Scroll To Explore
             </span>
 
@@ -108,29 +119,51 @@ export default function ServicesScroll() {
 
         </div>
 
+        {/* Desktop Horizontal Scroll */}
+
+        <div
+          ref={sliderRef}
+          className="
+            mt-16
+            hidden
+            lg:flex
+            gap-10
+            px-12
+            pb-20
+            will-change-transform
+          "
+        >
+          {services.map((service) => (
+            <ServiceCard
+              key={service.id}
+              service={service}
+            />
+          ))}
+        </div>
+
+        {/* Mobile / Tablet Grid */}
+
+        <div
+          className="
+            mt-12
+            grid
+            grid-cols-1
+            gap-6
+            px-5
+            sm:px-8
+            md:grid-cols-2
+            lg:hidden
+          "
+        >
+          {services.map((service) => (
+            <ServiceCard
+              key={service.id}
+              service={service}
+            />
+          ))}
+        </div>
+
       </div>
-
-      {/* Horizontal Slider */}
-
-      <div
-        ref={sliderRef}
-        className="
-        flex
-        gap-16
-        mt-16
-        px-20
-        pb-32
-        will-change-transform
-      "
-      >
-        {services.map((service) => (
-          <ServiceCard
-            key={service.id}
-            service={service}
-          />
-        ))}
-      </div>
-
     </section>
   );
 }

@@ -1,138 +1,147 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { CheckCircle2 } from "lucide-react";
 
 const issues = [
   {
-    title: "AC Issues",
+    title: "Air Conditioner",
     problems: [
-      "Poor or no cooling issues",
-      "AC not turning on",
-      "Unusual sounds or vibrations",
-      "Foul odors from the unit",
-      "Leaking water from indoor unit",
-      "Remote or control board issues",
-      "Gas refill and regular servicing",
-      "Installation & uninstallation",
+      "Poor or No Cooling",
+      "Water Leakage",
+      "Gas Refilling",
+      "PCB & Sensor Repair",
+      "Installation",
+      "Uninstallation",
     ],
   },
   {
-    title: "Washing Machine Issues",
+    title: "Washing Machine",
     problems: [
-      "Not spinning or draining",
-      "Drum not rotating properly",
-      "Water leakage or overflow",
-      "Power supply issues",
-      "Noisy operation or vibration",
-      "Door not closing or locking",
-      "Control panel/display errors",
-      "Foul smell from the drum",
+      "Not Spinning",
+      "Water Leakage",
+      "Door Lock Issue",
+      "Drum Noise",
+      "Drain Problems",
+      "Installation",
     ],
   },
   {
-    title: "Water Heater Issues",
+    title: "Water Heater",
     problems: [
-      "Water not heating properly",
-      "Geyser not turning on",
-      "Tripping power or fuse issues",
-      "Water leakage from tank or pipe",
-      "Overheating or thermostat failure",
-      "Noisy operation",
-      "Rust or foul smell in water",
-      "Installation & Uninstallation",
+      "No Heating",
+      "Thermostat Repair",
+      "Heating Element",
+      "Water Leakage",
+      "Power Issues",
+      "Installation",
     ],
   },
   {
-    title: "RO Purifier Issues",
+    title: "RO Purifier",
     problems: [
-      "Low or no water output",
-      "Bad taste or odor in water",
-      "RO unit not turning on",
-      "Water leakage from filters",
-      "Unusual noise from purifier",
-      "Filter / Membrane replacement",
-      "Annual Maintenance (AMC)",
-      "Installation and relocation",
+      "Filter Replacement",
+      "Low Water Flow",
+      "Bad Taste",
+      "Motor Repair",
+      "AMC Service",
+      "Installation",
     ],
   },
 ];
 
 export default function IssuesSection() {
   return (
-    <section className="bg-black py-24">
+    <section
+      id="issues"
+      className="relative overflow-hidden bg-[#080808] py-20 lg:py-28"
+    >
+      {/* Glow */}
 
-      <div className="max-w-[1450px] mx-auto px-6">
+      <div className="absolute left-0 top-0 h-80 w-80 rounded-full bg-[#d4af37]/5 blur-[140px]" />
+
+      <div className="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-[#d4af37]/5 blur-[140px]" />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
 
         {/* Heading */}
 
-        <div className="text-center mb-16">
+        <div className="text-center">
 
-          <p className="uppercase tracking-[5px] text-[#c8a96b] text-xs font-semibold">
-            COMPREHENSIVE SOLUTIONS
+          <p className="uppercase tracking-[5px] text-[#d4af37] text-xs sm:text-sm font-semibold">
+            Common Problems
           </p>
 
-          <h2 className="mt-3 text-4xl lg:text-5xl font-bold text-white">
-            Issues <span className="text-[#d4af37]">We Fix</span>
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+            Issues We Fix
           </h2>
+
+          <p className="mx-auto mt-6 max-w-2xl text-gray-400 text-base sm:text-lg">
+            Our certified technicians diagnose and repair all major
+            home appliance problems using genuine spare parts.
+          </p>
 
         </div>
 
         {/* Cards */}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
 
           {issues.map((item, index) => (
 
             <motion.div
-              key={index}
-              whileHover={{ y: -6 }}
-              transition={{ duration: .3 }}
+              key={item.title}
+              initial={{
+                opacity: 0,
+                y: 40,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{ once: true }}
+              transition={{
+                duration: .6,
+                delay: index * .1,
+              }}
+              whileHover={{
+                y: -8,
+              }}
               className="
-                rounded-[24px]
+                group
+                rounded-3xl
                 border
-                border-[#2c2c2c]
-                hover:border-[#b58d40]
-                bg-gradient-to-br
-                from-[#141414]
-                to-[#191714]
-                p-8
+                border-[#272727]
+                bg-[#111111]
+                p-7
                 transition-all
-                duration-300
+                duration-500
+                hover:border-[#d4af37]
+                hover:shadow-[0_20px_60px_rgba(212,175,55,.12)]
               "
             >
 
-              {/* Header */}
+              <h3 className="text-2xl font-bold text-white group-hover:text-[#d4af37] transition-colors">
+                {item.title}
+              </h3>
 
-              <div className="flex items-start gap-4 mb-8">
+              <div className="mt-8 space-y-4">
 
-                <div className="w-12 h-12 rounded-full border border-[#5d4a28] flex items-center justify-center shrink-0">
-
-                  <div className="w-4 h-4 rounded-full bg-[#d4af37]" />
-
-                </div>
-
-                <h3 className="text-[18px] font-bold text-white leading-8">
-                  {item.title}
-                </h3>
-
-              </div>
-
-              {/* Problems */}
-
-              <div className="space-y-4">
-
-                {item.problems.map((problem, i) => (
+                {item.problems.map((problem) => (
 
                   <div
-                    key={i}
-                    className="group flex items-start gap-4"
+                    key={problem}
+                    className="flex items-start gap-3"
                   >
 
-                    <div className="w-8 h-px mt-3 bg-[#353535] group-hover:bg-[#d4af37] transition-all"></div>
+                    <CheckCircle2
+                      size={18}
+                      className="mt-1 shrink-0 text-[#d4af37]"
+                    />
 
-                    <p className="text-[15px] leading-8 text-gray-400 group-hover:text-white transition-colors">
+                    <span className="text-gray-300 leading-7">
                       {problem}
-                    </p>
+                    </span>
 
                   </div>
 
@@ -147,7 +156,6 @@ export default function IssuesSection() {
         </div>
 
       </div>
-
     </section>
   );
 }

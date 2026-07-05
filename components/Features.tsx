@@ -10,112 +10,176 @@ import {
 const features = [
   {
     icon: Zap,
-    title: "Turbo Cooling",
-    desc: "Experience rapid cooling with powerful airflow technology.",
+    title: "High Efficiency",
+    desc: "Powerful technology crafted to deliver consistent and reliable results.",
   },
   {
     icon: Clock3,
     title: "Same Day Service",
-    desc: "Quick response and same-day repair availability across Chennai.",
+    desc: "Quick response and same-day repair across Chennai.",
   },
   {
     icon: Mic,
     title: "Ultra Quiet",
-    desc: "Whisper-quiet performance for a comfortable environment.",
+    desc: "Whisper-quiet operation for maximum comfort.",
   },
   {
     icon: ShieldCheck,
     title: "Certified Experts",
-    desc: "Fully trained, certified technicians with genuine spare parts.",
+    desc: "Experienced technicians using genuine spare parts.",
   },
 ];
 
 export default function Features() {
   return (
-    <section className="relative overflow-hidden bg-[#0A0A0A]">
-    <div className="absolute inset-0 bg-black/60"></div>
+    <section 
+    id="features"
+    className="relative overflow-hidden bg-[#0A0A0A] py-20 lg:py-28">
 
-  <div className="relative z-10">
       {/* Background Glow */}
 
-      <div className="absolute top-0 left-0 w-96 h-96 bg-yellow-500/5 blur-[180px]" />
+      <div className="absolute left-0 top-0 h-80 w-80 rounded-full bg-[#d4af37]/5 blur-[140px]" />
 
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-500/5 blur-[180px]" />
+      <div className="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-[#d4af37]/5 blur-[140px]" />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
 
         {/* Heading */}
 
         <div className="text-center">
 
-          <p className="uppercase tracking-[7px] text-[#caa65b] text-sm font-semibold">
+          <p
+            className="
+              uppercase
+              tracking-[4px]
+              sm:tracking-[6px]
+              text-[#d4af37]
+              text-xs
+              sm:text-sm
+              font-semibold
+            "
+          >
             Smart Features & Benefits
           </p>
 
-          <h2 className="mt-4 text-3xl md:text-5xl font-bold text-white">
+          <h2
+            className="
+              mt-4
+              text-3xl
+              sm:text-4xl
+              lg:text-5xl
+              font-bold
+              text-white
+            "
+          >
             Intelligent Features
           </h2>
 
-          <p className="mt-4 text-gray-400 text-xl">
-            For a Better Experience
+          <p
+            className="
+              mt-4
+              text-gray-400
+              text-base
+              sm:text-lg
+            "
+          >
+            Built for Performance. Designed for Comfort.
           </p>
 
-          <div className="w-20 h-[2px] bg-[#caa65b] mx-auto mt-3"></div>
+          <div className="mx-auto mt-6 h-[2px] w-20 bg-[#d4af37]" />
 
         </div>
 
         {/* Cards */}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mt-24">
+        <div
+          className="
+            mt-14
+            grid
+            grid-cols-1
+            sm:grid-cols-2
+            xl:grid-cols-4
+            gap-6
+            lg:gap-8
+          "
+        >
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
 
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="group text-center"
-            >
-              {/* Icon */}
-
+            return (
               <div
+                key={index}
                 className="
-                mx-auto
-                flex
-                items-center
-                justify-center
-                w-24
-                h-24
-                rounded-full
-                border
-                border-[#7a6431]
-                bg-[#111]
-                transition-all
-                duration-500
-                group-hover:border-[#d9b45c]
-                group-hover:shadow-[0_0_35px_rgba(212,175,55,.25)]
-                group-hover:scale-110
-              "
+                  group
+                  rounded-3xl
+                  border
+                  border-[#222]
+                  bg-[#111]
+                  p-7
+                  transition-all
+                  duration-500
+                  hover:border-[#d4af37]
+                  hover:-translate-y-2
+                  hover:shadow-[0_20px_60px_rgba(212,175,55,.12)]
+                "
               >
-                <feature.icon
-                  size={36}
-                  className="text-[#d4af37]"
-                />
+                <div
+                  className="
+                    flex
+                    h-16
+                    w-16
+                    items-center
+                    justify-center
+                    rounded-2xl
+                    border
+                    border-[#3c3c3c]
+                    bg-[#171717]
+                    transition-all
+                    duration-500
+                    group-hover:border-[#d4af37]
+                    group-hover:bg-[#d4af37]
+                  "
+                >
+                  <Icon
+                    size={30}
+                    className="
+                      text-[#d4af37]
+                      transition-all
+                      duration-500
+                      group-hover:text-black
+                    "
+                  />
+                </div>
+
+                <h3
+                  className="
+                    mt-8
+                    text-xl
+                    font-bold
+                    text-white
+                  "
+                >
+                  {feature.title}
+                </h3>
+
+                <p
+                  className="
+                    mt-4
+                    text-sm
+                    sm:text-base
+                    leading-7
+                    text-gray-400
+                  "
+                >
+                  {feature.desc}
+                </p>
               </div>
-
-              {/* Title */}
-
-              <h3 className="mt-8 text-xl font-semibold text-white">
-                {feature.title}
-              </h3>
-
-              {/* Description */}
-
-              <p className="mt-4 text-gray-400 leading-8 text-lg">
-                {feature.desc}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
+
       </div>
-    </div>
+
     </section>
   );
 }
