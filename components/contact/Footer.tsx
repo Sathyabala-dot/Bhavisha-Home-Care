@@ -37,15 +37,17 @@ const policies = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/10 bg-[#090909] overflow-hidden">
+    <footer className="relative overflow-hidden border-t border-white/10 bg-[#090909]">
 
       {/* Background Glow */}
 
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-[#d4af37]/5 blur-[170px]" />
+      <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#d4af37]/5 blur-[160px] sm:h-[650px] sm:w-[650px]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-20">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
 
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-14">
+        {/* Grid */}
+
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 xl:grid-cols-4 xl:gap-14">
 
           {/* Company */}
 
@@ -54,33 +56,53 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold">
+            <h2 className="text-2xl font-bold leading-tight text-white sm:text-3xl">
               <span className="text-[#d4af37]">Bhavisha</span>
               <br />
               Home Care
             </h2>
 
-            <p className="text-gray-400 mt-6 leading-8">
+            <p className="mt-5 text-sm leading-7 text-gray-400 sm:text-base">
               Reliable home appliance repair services across Chennai.
               Fast doorstep support with experienced technicians,
               genuine spare parts and affordable pricing.
             </p>
 
-            {/* Social */}
+            {/* Social Icons */}
 
-            <div className="flex gap-4 mt-8">
+            <div className="mt-8 flex gap-3">
 
-             {[FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube].map(
-  (Icon, index) => (
-    <a
-      key={index}
-      href="#"
-      className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center hover:bg-[#d4af37] hover:text-black transition-all duration-300"
-    >
-      <Icon size={18} />
-    </a>
-  )
-)}
+              {[FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube].map(
+                (Icon, index) => (
+                  <a
+                    key={index}
+                    href="#"
+                    className="
+                      flex
+                      h-10
+                      w-10
+                      items-center
+                      justify-center
+                      rounded-full
+                      border
+                      border-white/10
+
+                      transition-all
+                      duration-300
+
+                      hover:scale-110
+                      hover:border-[#d4af37]
+                      hover:bg-[#d4af37]
+                      hover:text-black
+
+                      sm:h-11
+                      sm:w-11
+                    "
+                  >
+                    <Icon size={17} />
+                  </a>
+                )
+              )}
 
             </div>
 
@@ -92,19 +114,30 @@ export default function Footer() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: .1 }}
+            transition={{ delay: 0.1 }}
           >
-            <h3 className="text-2xl font-semibold mb-8">
+            <h3 className="mb-6 text-xl font-semibold text-white sm:text-2xl">
               Services
             </h3>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
 
               {services.map((item) => (
                 <Link
                   key={item}
                   href="#"
-                  className="block text-gray-400 hover:text-[#d4af37] transition-all"
+                  className="
+                    block
+                    text-sm
+                    text-gray-400
+                    transition-all
+                    duration-300
+
+                    hover:translate-x-1
+                    hover:text-[#d4af37]
+
+                    sm:text-base
+                  "
                 >
                   {item}
                 </Link>
@@ -120,19 +153,30 @@ export default function Footer() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: .2 }}
+            transition={{ delay: 0.2 }}
           >
-            <h3 className="text-2xl font-semibold mb-8">
+            <h3 className="mb-6 text-xl font-semibold text-white sm:text-2xl">
               Company
             </h3>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
 
               {company.map((item) => (
                 <Link
                   key={item}
                   href="#"
-                  className="block text-gray-400 hover:text-[#d4af37]"
+                  className="
+                    block
+                    text-sm
+                    text-gray-400
+                    transition-all
+                    duration-300
+
+                    hover:translate-x-1
+                    hover:text-[#d4af37]
+
+                    sm:text-base
+                  "
                 >
                   {item}
                 </Link>
@@ -140,7 +184,7 @@ export default function Footer() {
 
             </div>
 
-            <h3 className="text-xl font-semibold mt-10 mb-5">
+            <h3 className="mb-4 mt-8 text-lg font-semibold text-white">
               Policies
             </h3>
 
@@ -150,7 +194,18 @@ export default function Footer() {
                 <Link
                   key={item}
                   href="#"
-                  className="block text-gray-400 hover:text-[#d4af37]"
+                  className="
+                    block
+                    text-sm
+                    text-gray-400
+                    transition-all
+                    duration-300
+
+                    hover:translate-x-1
+                    hover:text-[#d4af37]
+
+                    sm:text-base
+                  "
                 >
                   {item}
                 </Link>
@@ -166,27 +221,74 @@ export default function Footer() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: .3 }}
+            transition={{ delay: 0.3 }}
           >
-            <h3 className="text-2xl font-semibold">
+            <h3 className="text-xl font-semibold text-white sm:text-2xl">
               Subscribe
             </h3>
 
-            <p className="text-gray-400 mt-5 leading-8">
+            <p className="mt-5 text-sm leading-7 text-gray-400 sm:text-base">
               Subscribe to receive service updates,
-              offers and maintenance tips.
+              exclusive offers and appliance maintenance tips.
             </p>
 
-            <div className="mt-8">
+            <div className="mt-7">
 
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="w-full rounded-full bg-[#151515] border border-white/10 px-6 py-4 outline-none focus:border-[#d4af37]"
+                className="
+                  w-full
+                  rounded-full
+                  border
+                  border-white/10
+                  bg-[#151515]
+
+                  px-5
+                  py-3.5
+
+                  text-sm
+                  outline-none
+
+                  transition-all
+                  duration-300
+
+                  placeholder:text-gray-500
+
+                  focus:border-[#d4af37]
+
+                  sm:px-6
+                  sm:py-4
+                "
               />
 
               <button
-                className="mt-5 w-full rounded-full bg-[#d4af37] py-4 font-semibold text-black hover:scale-[1.02] transition-all flex justify-center items-center gap-2"
+                className="
+                  mt-4
+
+                  flex
+                  w-full
+                  items-center
+                  justify-center
+                  gap-2
+
+                  rounded-full
+
+                  bg-[#d4af37]
+
+                  py-3.5
+
+                  font-semibold
+                  text-black
+
+                  transition-all
+                  duration-300
+
+                  hover:scale-[1.02]
+                  hover:shadow-[0_0_25px_rgba(212,175,55,0.35)]
+
+                  sm:py-4
+                "
               >
                 <Send size={18} />
 
@@ -201,14 +303,33 @@ export default function Footer() {
 
         {/* Bottom */}
 
-        <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-5">
+        <div
+          className="
+            mt-12
+            flex
+            flex-col
+            items-center
+            justify-between
+            gap-4
 
-          <p className="text-gray-500 text-sm">
+            border-t
+            border-white/10
+
+            pt-6
+
+            text-center
+
+            md:mt-16
+            md:flex-row
+            md:pt-8
+          "
+        >
+          <p className="text-center text-sm text-gray-500 md:text-left">
             © 2026 Bhavisha Home Care. All Rights Reserved.
           </p>
 
-          <p className="text-gray-500 text-sm">
-            Designed & Developed with ❤️
+          <p className="text-sm text-gray-500">
+            Designed with Care for Better Home Service
           </p>
 
         </div>

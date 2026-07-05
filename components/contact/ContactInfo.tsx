@@ -1,12 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Phone,
-  Mail,
-  Clock,
-  MapPin,
-} from "lucide-react";
+import { Phone, Mail, Clock, MapPin } from "lucide-react";
 
 const contactItems = [
   {
@@ -31,19 +26,23 @@ const contactItems = [
 
 export default function ContactInfo() {
   return (
-    <div>
+    <div className="w-full">
+
+      {/* Heading */}
 
       <motion.h2
         initial={{ opacity: 0, x: -40 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: .6 }}
-        className="text-4xl font-bold mb-10"
+        transition={{ duration: 0.6 }}
+        className="mb-8 text-3xl font-bold text-white sm:mb-10 sm:text-4xl"
       >
         Reach Us
       </motion.h2>
 
-      <div className="space-y-8">
+      {/* Contact Items */}
+
+      <div className="space-y-6 sm:space-y-8">
 
         {contactItems.map((item, index) => {
           const Icon = item.icon;
@@ -55,29 +54,50 @@ export default function ContactInfo() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{
-                duration: .5,
-                delay: index * .15,
+                duration: 0.5,
+                delay: index * 0.15,
               }}
-              className="flex gap-5 items-start group"
+              className="group flex items-start gap-4 sm:gap-5"
             >
+              {/* Icon */}
 
-              <div className="w-16 h-16 rounded-full border border-[#d4af37]/40 bg-[#111] flex items-center justify-center transition-all duration-300 group-hover:bg-[#d4af37] group-hover:text-black">
+              <div
+                className="
+                  flex
+                  h-12
+                  w-12
+                  shrink-0
+                  items-center
+                  justify-center
+                  rounded-full
+                  border
+                  border-[#d4af37]/40
+                  bg-[#111]
+                  transition-all
+                  duration-300
 
-                <Icon className="w-7 h-7 text-[#d4af37] group-hover:text-black transition-all" />
+                  sm:h-16
+                  sm:w-16
 
+                  group-hover:bg-[#d4af37]
+                "
+              >
+                <Icon className="h-5 w-5 text-[#d4af37] transition-all group-hover:text-black sm:h-7 sm:w-7" />
               </div>
 
-              <div>
+              {/* Text */}
 
-                <p className="uppercase tracking-[2px] text-xs text-gray-500 mb-1">
+              <div className="min-w-0 flex-1">
+
+                <p className="mb-1 text-[11px] uppercase tracking-[3px] text-gray-500 sm:text-xs">
                   {item.title}
                 </p>
 
-                <h3 className="text-xl font-semibold">
+                <h3 className="break-words text-lg font-semibold text-white sm:text-xl">
                   {item.value}
                 </h3>
 
-                <p className="text-gray-400 mt-1">
+                <p className="mt-1 text-sm leading-6 text-gray-400 sm:text-base">
                   {item.sub}
                 </p>
 
@@ -95,34 +115,63 @@ export default function ContactInfo() {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: .7 }}
-        className="mt-14"
+        transition={{ duration: 0.7 }}
+        className="mt-10 sm:mt-14"
       >
+        <div
+          className="
+            rounded-2xl
+            border
+            border-white/10
+            bg-[#111]
+            p-5
+            transition-all
+            duration-300
 
-        <div className="rounded-2xl border border-white/10 bg-[#111] p-7 hover:border-[#d4af37]/40 transition-all duration-300">
+            hover:border-[#d4af37]/40
 
-          <div className="flex gap-4">
+            sm:p-7
+          "
+        >
+          <div className="flex flex-col gap-4 sm:flex-row">
 
-            <div className="w-14 h-14 rounded-full bg-[#d4af37]/15 flex items-center justify-center">
+            {/* Icon */}
 
-              <MapPin className="text-[#d4af37]" size={26} />
+            <div
+              className="
+                flex
+                h-12
+                w-12
+                shrink-0
+                items-center
+                justify-center
+                rounded-full
+                bg-[#d4af37]/15
 
+                sm:h-14
+                sm:w-14
+              "
+            >
+              <MapPin
+                className="text-[#d4af37]"
+                size={24}
+              />
             </div>
+
+            {/* Address */}
 
             <div>
 
-              <h3 className="text-xl font-semibold">
+              <h3 className="text-lg font-semibold text-white sm:text-xl">
                 Office Address
               </h3>
 
-              <p className="text-gray-400 mt-3 leading-8">
-
-                10, Vanagaram Main Road <br />
-
-                Vanagaram <br />
-
+              <p className="mt-3 text-sm leading-7 text-gray-400 sm:text-base sm:leading-8">
+                10, Vanagaram Main Road
+                <br />
+                Vanagaram
+                <br />
                 Chennai - 600116
-
               </p>
 
             </div>
