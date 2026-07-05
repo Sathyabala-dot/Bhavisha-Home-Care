@@ -1,7 +1,6 @@
- "use client";
+"use client";
 
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface Service {
@@ -22,194 +21,141 @@ export default function ServiceCard({ service }: Props) {
   return (
     <motion.div
       whileHover={{ y: -6 }}
-      transition={{ duration: 0.35 }}
+      transition={{ duration: 0.3 }}
       className="
         group
         relative
-        w-[720px]
-        h-[460px]
-        rounded-[34px]
+
+        w-full
+        lg:w-[560px]
+        lg:min-w-[560px]
+
         overflow-hidden
+        rounded-3xl
+
+        border border-[#2a2a2a]
         bg-[#121212]
-        border
-        border-[#2a2a2a]
+
         hover:border-[#d4af37]
-        transition-all
-        duration-300
+        transition-all duration-300
+
         flex
-        shrink-0
+        flex-col
+        lg:flex-row
+
+        min-h-[420px]
+        lg:h-[150px]
       "
     >
-      {/* LEFT CONTENT */}
-      <div className="w-[40%] flex flex-col p-10">
+      {/* LEFT SIDE */}
 
-        {/* TOP */}
-        <div className="flex items-center gap-4">
+      <div
+        className="
+          lg:w-[42%]
+          p-6
 
-          <div
-            className="
-              w-12
-              h-12
-              rounded-full
-              border
-              border-[#d4af37]
-              flex
-              items-center
-              justify-center
-              text-[18px]
-              text-[#d4af37]
-            "
-          >
-            {service.icon}
+          flex
+          flex-col
+          justify-between
+        "
+      >
+        <div>
+          <div className="flex items-center gap-3">
+            <div
+              className="
+                w-10
+                h-10
+                rounded-full
+                border
+                border-[#d4af37]
+
+                flex
+                items-center
+                justify-center
+
+                text-[#d4af37]
+              "
+            >
+              {service.icon}
+            </div>
+
+            <div className="flex-1 h-px bg-[#444]" />
+
+            <span className="text-[11px] tracking-[3px] text-[#d4af37]">
+              {service.number}
+            </span>
           </div>
 
-          <div className="w-12 h-px bg-[#555]" />
+          <h2 className="mt-5 text-[24px] font-bold leading-tight text-white">
+            {service.title}
+          </h2>
 
-          <span
-            className="
-              text-[#d4af37]
-              tracking-[4px]
-              text-[12px]
-              font-medium
-            "
-          >
-            {service.number}
-          </span>
-
+          <p className="mt-4 text-sm leading-7 text-gray-400">
+            {service.description}
+          </p>
         </div>
 
-        {/* TITLE */}
-        <h2
-          className="
-            mt-10
-            text-[15px]
-            leading-6
-            font-bold
-            text-white
-          "
-        >
-          {service.title}
-        </h2>
-
-        {/* DESCRIPTION */}
-        <p
-          className="
-            mt-5
-            text-[13px]
-            leading-6
-            text-gray-400
-          "
-        >
-          {service.description}
-        </p>
-
-        <div className="flex-1" />
-
-        {/* BRANDS */}
-        <div>
-
-          <p
-            className="
-              uppercase
-              tracking-[3px]
-              text-[10px]
-              text-gray-500
-              mb-4
-            "
-          >
+        <div className="mt-8">
+          <p className="mb-3 text-[11px] uppercase tracking-[4px] text-gray-500">
             Supported Brands
           </p>
 
           <div className="flex flex-wrap gap-x-3 gap-y-2">
-
             {service.brands.map((brand) => (
               <span
                 key={brand}
                 className="
-                  text-[12px]
+                  text-xs
                   text-gray-300
                   border-b
                   border-[#444]
                   hover:text-[#d4af37]
                   transition-colors
-                  duration-300
-                  cursor-pointer
                 "
               >
                 {brand}
               </span>
             ))}
-
           </div>
-
         </div>
-
-        {/* BUTTON */}
-        <button
-          className="
-            group/button
-            mt-8
-            flex
-            items-center
-            gap-3
-            text-[#d4af37]
-            text-[15px]
-            font-semibold
-          "
-        >
-          Book This Service
-
-          <ArrowRight
-            size={18}
-            className="
-              transition-transform
-              duration-300
-              group-hover/button:translate-x-1.5
-            "
-          />
-
-        </button>
-
       </div>
 
-      {/* RIGHT IMAGE */}
-      <div className="relative flex-1 overflow-hidden">
+      {/* IMAGE */}
 
+      <div
+        className="
+          relative
+          h-[220px]
+          sm:h-[260px]
+          lg:h-full
+          lg:flex-1
+        "
+      >
         <Image
           src={service.image}
           alt={service.title}
           fill
           priority
-          sizes="50vw"
+          sizes="(max-width:1024px)100vw,55vw"
           className="
             object-cover
-            object-center
             transition-transform
             duration-700
             group-hover:scale-105
           "
         />
 
-        <div
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-l
-            from-transparent
-            via-transparent
-            to-[#121212]/15
-          "
-        />
-
+        <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#121212]/10" />
       </div>
 
-      {/* GOLD BOTTOM LINE */}
+      {/* Bottom Gold Line */}
+
       <div
         className="
           absolute
           bottom-0
           left-0
-          h-[3px]
+          h-[2px]
           w-0
           bg-[#d4af37]
           transition-all
@@ -217,7 +163,6 @@ export default function ServiceCard({ service }: Props) {
           group-hover:w-full
         "
       />
-
     </motion.div>
   );
 }

@@ -81,8 +81,8 @@ export default function ServicesScroll() {
             <h2
               className="
                 mt-4
-                text-3xl
-                sm:text-4xl
+                text-4xl
+                sm:text-3xl
                 lg:text-5xl
                 font-bold
                 text-white
@@ -94,7 +94,7 @@ export default function ServicesScroll() {
             <p
               className="
                 mt-5
-                max-w-2xl
+                max-w-xl
                 text-gray-400
                 text-base
                 sm:text-lg
@@ -121,18 +121,19 @@ export default function ServicesScroll() {
 
         {/* Desktop Horizontal Scroll */}
 
-        <div
-          ref={sliderRef}
-          className="
-            mt-16
-            hidden
-            lg:flex
-            gap-10
-            px-12
-            pb-20
-            will-change-transform
-          "
-        >
+      <div
+  ref={sliderRef}
+  className="
+    mt-14
+    hidden
+    lg:flex
+    gap-6
+    px-8
+    pr-24
+    pb-16
+    will-change-transform
+  "
+>
           {services.map((service) => (
             <ServiceCard
               key={service.id}
@@ -147,12 +148,18 @@ export default function ServicesScroll() {
           className="
             mt-12
             grid
-            grid-cols-1
-            gap-6
-            px-5
-            sm:px-8
-            md:grid-cols-2
-            lg:hidden
+           grid-cols-1
+gap-8
+
+px-4
+sm:px-8
+
+md:grid-cols-2
+
+max-w-7xl
+mx-auto
+
+lg:hidden
           "
         >
           {services.map((service) => (
