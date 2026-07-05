@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services/Services";
 import FloatingContact from "@/components/FloatingContact";
 import Features from "@/components/Features";
 import ProductShowcase from "@/components/ProductShowcase";
@@ -23,7 +22,6 @@ export default function Home() {
     <main className="bg-[#050505] text-white overflow-x-hidden">
       <Navbar />
       <Hero />
-      <Services />
       <FloatingContact />
       <Features />
       <ProductShowcase />
@@ -35,6 +33,9 @@ export default function Home() {
       <IssuesSection />
       <WorkProcess />
       <Testimonials />
+     
+
+
 
       {/* Contact Section */}
       <section
