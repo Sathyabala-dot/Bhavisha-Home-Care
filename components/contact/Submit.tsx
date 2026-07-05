@@ -87,7 +87,7 @@ export default function Submit() {
 
     setLoading(true);
 
-    const message = `🏠 *New Service Booking*
+    const message = ` *New Service Booking*
 
  *Customer Name:* ${name}
 
