@@ -1,23 +1,21 @@
 "use client";
 
-import { Phone, MessageCircle } from "lucide-react";
+import { Phone } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 export default function FloatingContact() {
   return (
-    <div
-      className="
-        fixed
-        bottom-5
-        right-5
-        z-[999]
-        flex
-        flex-col
-        gap-3
-        lg:bottom-8
-        lg:right-8
-      "
-    >
+   <div className="
+  fixed
+  right-4
+  bottom-[190px]
+  md:bottom-6
+  z-[100]
+  flex
+  flex-col
+  gap-3
+">
       {/* WhatsApp */}
 
       <motion.a
@@ -46,24 +44,22 @@ export default function FloatingContact() {
         whileTap={{
           scale: 0.95,
         }}
-        className="
-          group
-          relative
-          flex
-          h-14
-          w-14
-          items-center
-          justify-center
-          rounded-full
-          bg-[#25D366]
-          shadow-[0_10px_35px_rgba(37,211,102,.45)]
-          transition-all
-          duration-300
-          lg:h-16
-          lg:w-16
-        "
+         className="
+    group
+    w-16 h-16
+    rounded-full
+    bg-[#25D366]
+    hover:bg-[#20c85a]
+    shadow-2xl
+    flex
+    items-center
+    justify-center
+    transition-all
+    duration-300
+    hover:scale-110
+  "
       >
-        <MessageCircle
+        <FaWhatsapp
           size={28}
           className="text-white"
         />
@@ -119,29 +115,26 @@ export default function FloatingContact() {
         whileTap={{
           scale: 0.95,
         }}
-        className="
-          group
-          relative
-          flex
-          h-14
-          w-14
-          items-center
-          justify-center
-          rounded-full
-          bg-gradient-to-br
-          from-[#d4af37]
-          to-[#f3cf63]
-          shadow-[0_10px_35px_rgba(212,175,55,.45)]
-          transition-all
-          duration-300
-          lg:h-16
-          lg:w-16
-        "
+         className="
+    group
+    w-16 h-16
+    rounded-full
+    bg-[#E6C15A]
+    hover:bg-[#d4af37]
+    shadow-2xl
+    flex
+    items-center
+    justify-center
+    transition-all
+    duration-300
+    hover:scale-110
+  "
       >
-        <Phone
-          size={24}
-          className="text-black"
-        />
+         <Phone
+    size={28}
+    className="text-black group-hover:-rotate-12 transition-transform duration-300"
+  />
+
 
         {/* Tooltip */}
 
