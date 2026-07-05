@@ -20,17 +20,47 @@ export default function Home() {
   return (
     <main className="bg-[#050505] text-white overflow-x-hidden">
       <Navbar />
-      <Hero />
+      <section id="home">
+        <Hero />
+      </section>
+
       <FloatingContact />
-      <Features />
-      <ExtremePerformance />
-      <WhyChooseUs />
-      <WhyChooseCards />
-      <ServicesScroll />
-      <SupportedBrands />
-      <IssuesSection />
-      <WorkProcess />
-      <Testimonials />
+
+      <section id="features">
+        <Features />
+      </section>
+
+      <section id="technology">
+        <ExtremePerformance />
+      </section>
+
+      <section id="about">
+        <WhyChooseUs />
+      </section>
+
+        <section id="why-choose-us">
+        <WhyChooseCards />
+      </section>
+
+       <section id="services">
+        <ServicesScroll />
+      </section>
+
+      <section id="brands">
+        <SupportedBrands />
+      </section>
+
+      <section id="issues">
+        <IssuesSection />
+      </section>
+
+       <section id="work-process">
+        <WorkProcess />
+      </section>
+
+       <section id="testimonials">
+        <Testimonials />
+      </section>
      
 
 

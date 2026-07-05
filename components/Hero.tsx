@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
+
 export default function Hero() {
   return (
     <section
@@ -125,13 +126,20 @@ export default function Hero() {
             sm:w-auto
           "
         >
-          <button className="btn-gold w-full sm:w-auto">
-            Book Service
-          </button>
-
-          <button className="btn-glass w-full sm:w-auto">
-            Explore Services
-          </button>
+         <button
+  onClick={() => {
+  document
+    .getElementById("contact")
+    ?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+}}
+  className="btn-gold w-full sm:w-auto"
+>
+  Book Service
+</button>
+     
         </motion.div>
 
       </div>

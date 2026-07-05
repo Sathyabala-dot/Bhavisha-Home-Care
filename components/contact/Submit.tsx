@@ -88,7 +88,8 @@ export default function Submit() {
     setLoading(true);
 
     const message = ` *New Service Booking*
-    *Hello Bhavisha Home Care! I would like to book a service.*
+
+  *Hello Bhavisha Home Care! I would like to book a service.*
 
  *Customer Name:* ${name}
 
