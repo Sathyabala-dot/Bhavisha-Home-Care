@@ -88,6 +88,7 @@ export default function Submit() {
     setLoading(true);
 
     const message = ` *New Service Booking*
+    *Hello Bhavisha Home Care! I would like to book a service.*
 
  *Customer Name:* ${name}
 
@@ -102,7 +103,6 @@ export default function Submit() {
  *Address:*
 ${address}
 
-Please contact the customer to confirm the booking.
 
 Thank you.`;
 
