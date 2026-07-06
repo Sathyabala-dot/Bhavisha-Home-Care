@@ -33,7 +33,7 @@ export default function FloatingContact() {
           {/* WhatsApp */}
 
           <a
-            href="https://wa.me/918062178399"
+            href="https://wa.me/9840974868"
             target="_blank"
             rel="noopener noreferrer"
             className="
@@ -61,7 +61,7 @@ export default function FloatingContact() {
           {/* Call */}
 
           <a
-            href="tel:+918062178399"
+            href="tel:+919840974868"
             className="
               flex-1
               h-14
@@ -89,7 +89,7 @@ export default function FloatingContact() {
       {/* Desktop Floating Buttons */}
       <div className="hidden md:flex fixed right-6 bottom-6 z-[999] flex-col gap-4">
         <a
-          href="https://wa.me/918062178399"
+          href="https://wa.me/9840974868"
           target="_blank"
           className="
             w-14
@@ -108,7 +108,7 @@ export default function FloatingContact() {
         </a>
 
         <a
-          href="tel:+918062178399"
+          href="tel:+919840974868"
           className="
             w-14
             h-14

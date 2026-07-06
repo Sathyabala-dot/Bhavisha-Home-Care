@@ -7,8 +7,8 @@ const contactItems = [
   {
     icon: Phone,
     title: "CALL US",
-    value: "08062178399",
-    sub: "9840974868",
+    value: "09840974868",
+    sub: "We are available 24/7",
   },
   {
     icon: Mail,
