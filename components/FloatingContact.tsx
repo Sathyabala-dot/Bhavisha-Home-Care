@@ -6,180 +6,125 @@ import { motion } from "framer-motion";
 
 export default function FloatingContact() {
   return (
-   <div className="
-  fixed
-  right-4
-  bottom-[190px]
-  md:bottom-6
-  z-[100]
-  flex
-  flex-col
-  gap-3
-">
-      {/* WhatsApp */}
-
-      <motion.a
-        href="https://wa.me/918062178399"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat on WhatsApp"
-        initial={{
-          opacity: 0,
-          scale: 0,
-          y: 50,
-        }}
-        animate={{
-          opacity: 1,
-          scale: 1,
-          y: 0,
-        }}
+    <>
+      {/* Mobile Bottom Bar */}
+      <motion.div
+        initial={{ y: 120 }}
+        animate={{ y: 0 }}
         transition={{
-          delay: 0.3,
-          type: "spring",
-          stiffness: 220,
+          duration: 0.5,
+          ease: "easeOut",
         }}
-        whileHover={{
-          scale: 1.1,
-        }}
-        whileTap={{
-          scale: 0.95,
-        }}
-         className="
-    group
-    w-16 h-16
-    rounded-full
-    bg-[#25D366]
-    hover:bg-[#20c85a]
-    shadow-2xl
-    flex
-    items-center
-    justify-center
-    transition-all
-    duration-300
-    hover:scale-110
-  "
-      >
-        <FaWhatsapp
-          size={28}
-          className="text-white"
-        />
-
-        {/* Tooltip */}
-
-        <span
-          className="
-            pointer-events-none
-            absolute
-            right-[75px]
-            whitespace-nowrap
-            rounded-full
-            bg-[#111]
-            px-4
-            py-2
-            text-sm
-            text-white
-            opacity-0
-            shadow-xl
-            transition-all
-            duration-300
-            group-hover:opacity-100
-          "
-        >
-          WhatsApp Us
-        </span>
-      </motion.a>
-
-      {/* Call */}
-
-      <motion.a
-        href="tel:+918062178399"
-        aria-label="Call Now"
-        initial={{
-          opacity: 0,
-          scale: 0,
-          y: 50,
-        }}
-        animate={{
-          opacity: 1,
-          scale: 1,
-          y: 0,
-        }}
-        transition={{
-          delay: 0.45,
-          type: "spring",
-          stiffness: 220,
-        }}
-        whileHover={{
-          scale: 1.1,
-        }}
-        whileTap={{
-          scale: 0.95,
-        }}
-         className="
-    group
-    w-16 h-16
-    rounded-full
-    bg-[#E6C15A]
-    hover:bg-[#d4af37]
-    shadow-2xl
-    flex
-    items-center
-    justify-center
-    transition-all
-    duration-300
-    hover:scale-110
-  "
-      >
-         <Phone
-    size={28}
-    className="text-black group-hover:-rotate-12 transition-transform duration-300"
-  />
-
-
-        {/* Tooltip */}
-
-        <span
-          className="
-            pointer-events-none
-            absolute
-            right-[75px]
-            whitespace-nowrap
-            rounded-full
-            bg-[#111]
-            px-4
-            py-2
-            text-sm
-            text-white
-            opacity-0
-            shadow-xl
-            transition-all
-            duration-300
-            group-hover:opacity-100
-          "
-        >
-          Call Now
-        </span>
-      </motion.a>
-
-      {/* Pulse Ring */}
-
-      <div
         className="
-          pointer-events-none
-          absolute
+          fixed
           bottom-0
+          left-0
           right-0
-          -z-10
-          h-16
-          w-16
-          rounded-full
-          bg-[#d4af37]/20
-          blur-xl
-          animate-pulse
-          lg:h-20
-          lg:w-20
+          z-[999]
+          bg-[#0b0b0b]/95
+          backdrop-blur-md
+          border-t
+          border-white/10
+          p-3
+          md:hidden
         "
-      />
-    </div>
+      >
+        <div className="flex gap-3">
+          {/* WhatsApp */}
+
+          <a
+            href="https://wa.me/918062178399"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              flex-1
+              h-14
+              rounded-full
+              bg-[#25D366]
+              hover:bg-[#20c85a]
+              flex
+              items-center
+              justify-center
+              gap-3
+              text-white
+              font-semibold
+              text-lg
+              transition-all
+              duration-300
+              active:scale-95
+            "
+          >
+            <FaWhatsapp size={24} />
+            WhatsApp
+          </a>
+
+          {/* Call */}
+
+          <a
+            href="tel:+918062178399"
+            className="
+              flex-1
+              h-14
+              rounded-full
+              bg-[#D6B56C]
+              hover:bg-[#c8a553]
+              flex
+              items-center
+              justify-center
+              gap-3
+              text-black
+              font-semibold
+              text-lg
+              transition-all
+              duration-300
+              active:scale-95
+            "
+          >
+            <Phone size={22} />
+            Call Now
+          </a>
+        </div>
+      </motion.div>
+
+      {/* Desktop Floating Buttons */}
+      <div className="hidden md:flex fixed right-6 bottom-6 z-[999] flex-col gap-4">
+        <a
+          href="https://wa.me/918062178399"
+          target="_blank"
+          className="
+            w-14
+            h-14
+            rounded-full
+            bg-[#25D366]
+            flex
+            items-center
+            justify-center
+            shadow-xl
+            hover:scale-110
+            transition
+          "
+        >
+          <FaWhatsapp size={26} className="text-white" />
+        </a>
+
+        <a
+          href="tel:+918062178399"
+          className="
+            w-14
+            h-14
+            rounded-full
+            bg-[#D6B56C]
+            flex
+            items-center
+            justify-center
+            shadow-xl
+            hover:scale-110
+            transition
+          "
+        >
+          <Phone size={24} className="text-black" />
+        </a>
+      </div>
+    </>
   );
 }
