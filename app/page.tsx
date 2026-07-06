@@ -1,3 +1,10 @@
+"use client";
+
+
+import { useState } from "react";
+import { motion } from "framer-motion";
+import Preloader from "@/components/Preloader";
+
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import FloatingContact from "@/components/FloatingContact";
@@ -17,8 +24,21 @@ import Footer from "@/components/contact/Footer";
 
   
 export default function Home() {
+   const [loading, setLoading] = useState(true);
+
+    if (loading) {
+    return <Preloader onComplete={() => setLoading(false)} />;
+  }
+
   return (
-    <main className="bg-[#050505] text-white overflow-x-hidden">
+    <motion.main
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{
+    duration: 0.8,
+  }}
+  className="bg-[#050505] text-white overflow-x-hidden"
+>
       <Navbar />
       <section id="home">
         <Hero />
@@ -107,6 +127,7 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
-    </main>
+    </motion.main>
   );
 }
+

@@ -14,9 +14,7 @@ import {
 const services = [
   "AC Repair",
   "Washing Machine",
-  "Refrigerator",
   "RO Water Purifier",
-  "Microwave Oven",
   "Water Heater",
 ];
 
@@ -29,11 +27,16 @@ const company = [
 ];
 
 const policies = [
-  "Privacy Policy",
-  "Terms & Conditions",
-  "Refund Policy",
-  "Service Areas",
+   {
+    name: "Privacy Policy",
+    href: "/privacy-policy",
+  },
+  {
+    name: "Terms & Conditions",
+    href: "/terms-and-conditions",
+  },
 ];
+
 
 export default function Footer() {
   return (
@@ -47,7 +50,7 @@ export default function Footer() {
 
         {/* Grid */}
 
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 xl:grid-cols-4 xl:gap-14">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-14">
 
           {/* Company */}
 
@@ -67,6 +70,7 @@ export default function Footer() {
               Fast doorstep support with experienced technicians,
               genuine spare parts and affordable pricing.
             </p>
+
 
             {/* Social Icons */}
 
@@ -125,7 +129,7 @@ export default function Footer() {
               {services.map((item) => (
                 <Link
                   key={item}
-                  href="#"
+                  href="#services"
                   className="
                     block
                     text-sm
@@ -147,160 +151,68 @@ export default function Footer() {
 
           </motion.div>
 
-          {/* Company */}
+{/* Company */}
+<motion.div
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ delay: 0.2 }}
+>
+  <h3 className="mb-6 text-xl font-semibold text-white sm:text-2xl">
+    Company
+  </h3>
 
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            <h3 className="mb-6 text-xl font-semibold text-white sm:text-2xl">
-              Company
-            </h3>
+  <div className="space-y-3">
+    <Link href="/#about" className="block text-sm text-gray-400 hover:text-[#d4af37] transition-all duration-300">
+      About Us
+    </Link>
 
-            <div className="space-y-3">
+    <Link href="/#services" className="block text-sm text-gray-400 hover:text-[#d4af37] transition-all duration-300">
+      Our Services
+    </Link>
 
-              {company.map((item) => (
-                <Link
-                  key={item}
-                  href="#"
-                  className="
-                    block
-                    text-sm
-                    text-gray-400
-                    transition-all
-                    duration-300
+    <Link href="/#why-choose-us" className="block text-sm text-gray-400 hover:text-[#d4af37] transition-all duration-300">
+      Why Choose Us
+    </Link>
 
-                    hover:translate-x-1
-                    hover:text-[#d4af37]
+    <Link href="/#testimonials" className="block text-sm text-gray-400 hover:text-[#d4af37] transition-all duration-300">
+      Testimonials
+    </Link>
 
-                    sm:text-base
-                  "
-                >
-                  {item}
-                </Link>
-              ))}
+    <Link href="/#contact" className="block text-sm text-gray-400 hover:text-[#d4af37] transition-all duration-300">
+      Contact
+    </Link>
+  </div>
+</motion.div>
 
-            </div>
+{/* Policies */}
+<motion.div
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ delay: 0.3 }}
+>
+  <h3 className="mb-6 text-xl font-semibold text-white sm:text-2xl">
+    Policies
+  </h3>
 
-            <h3 className="mb-4 mt-8 text-lg font-semibold text-white">
-              Policies
-            </h3>
+  <div className="space-y-3">
+    {policies.map((item) => (
+  <Link
+    key={item.name}
+    href={item.href}
+    className="block text-sm text-gray-400 hover:text-[#d4af37]"
+  >
+    {item.name}
+  </Link>
+))}
+  </div>
+</motion.div>
 
-            <div className="space-y-3">
+          
 
-              {policies.map((item) => (
-                <Link
-                  key={item}
-                  href="#"
-                  className="
-                    block
-                    text-sm
-                    text-gray-400
-                    transition-all
-                    duration-300
-
-                    hover:translate-x-1
-                    hover:text-[#d4af37]
-
-                    sm:text-base
-                  "
-                >
-                  {item}
-                </Link>
-              ))}
-
-            </div>
-
-          </motion.div>
-
-          {/* Newsletter */}
-
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-          >
-            <h3 className="text-xl font-semibold text-white sm:text-2xl">
-              Subscribe
-            </h3>
-
-            <p className="mt-5 text-sm leading-7 text-gray-400 sm:text-base">
-              Subscribe to receive service updates,
-              exclusive offers and appliance maintenance tips.
-            </p>
-
-            <div className="mt-7">
-
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="
-                  w-full
-                  rounded-full
-                  border
-                  border-white/10
-                  bg-[#151515]
-
-                  px-5
-                  py-3.5
-
-                  text-sm
-                  outline-none
-
-                  transition-all
-                  duration-300
-
-                  placeholder:text-gray-500
-
-                  focus:border-[#d4af37]
-
-                  sm:px-6
-                  sm:py-4
-                "
-              />
-
-              <button
-                className="
-                  mt-4
-
-                  flex
-                  w-full
-                  items-center
-                  justify-center
-                  gap-2
-
-                  rounded-full
-
-                  bg-[#d4af37]
-
-                  py-3.5
-
-                  font-semibold
-                  text-black
-
-                  transition-all
-                  duration-300
-
-                  hover:scale-[1.02]
-                  hover:shadow-[0_0_25px_rgba(212,175,55,0.35)]
-
-                  sm:py-4
-                "
-              >
-                <Send size={18} />
-
-                Subscribe
-              </button>
-
-            </div>
-
-          </motion.div>
-
-        </div>
-
+             
+</div>   {/* End Grid */}
         {/* Bottom */}
 
         <div
@@ -337,5 +249,6 @@ export default function Footer() {
       </div>
 
     </footer>
+  
   );
 }
