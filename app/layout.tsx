@@ -28,10 +28,14 @@ export const metadata: Metadata = {
 
   keywords: [
     "AC Repair",
+    "AC Service",
     "Washing Machine Repair",
+     "Washing Machine service",
     "RO Service",
     "Geyser Repair",
+    "Geyser service",
     "Home Appliance Repair",
+    "Home Appliance Service",
     "Bhavisha Home Care",
   ],
 
