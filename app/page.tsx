@@ -21,6 +21,7 @@ import ContactInfo from "@/components/contact/ContactInfo";
 import GoogleMap from "@/components/contact/GoogleMap";
 import Submit from "@/components/contact/Submit";
 import Footer from "@/components/contact/Footer";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 
   
 export default function Home() {
@@ -81,7 +82,7 @@ export default function Home() {
        <section id="testimonials">
         <Testimonials />
       </section>
-     
+      <LocalBusinessSchema />
 
 
 
